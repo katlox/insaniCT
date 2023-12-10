@@ -1,5 +1,6 @@
 # InsaniCT
-A Cheat Engine cheat table for an old insane fish game v1.1
+A Cheat Engine cheat table for an old insane fish game v1.1.
+
 It is recommended you backup your data before using this cheat table.
 ## Features
 This table includes a mix of quality of life improvements, cheats, as well as easier access to variables to fix bugged saves, like invalid tank/levels.
