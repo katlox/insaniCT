@@ -17,7 +17,7 @@
 define(mutexCreation, "Insaniquarium.exe"+8882C)
 
 define(originalmutexbranch, 75 0C 8B 07)
-define(originalmutexcreation, 50 6A 01 53 FF 15 58 61 59 00 BE 10 00 00 00 39)
+define(originalmutexcreation, 50 6A 01 53)
 
 [ENABLE]
 assert(mutexCheck, originalmutexbranch)
@@ -31,7 +31,6 @@ mutexCreation:
 
 [DISABLE]
 mutexCheck:
-  //jne "Insaniquarium.exe"+888AA
   db originalmutexbranch
 
 mutexCreation:
@@ -64,16 +63,17 @@ mutexCreation:
           <Color>008000</Color>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript Async="1">define(vtAFKbypass, "Insaniquarium.exe"+D6B97)
+define(originalbytes, 7D 0B 8B 55)
 
 [ENABLE]
+assert(vtAFKbypass, originalbytes)
 vtAFKbypass:
   nop
   nop
  
 [DISABLE]
 vtAFKbypass:
-//original instruction
-  jnl Insaniquarium.exe+D6BA4
+  db originalbytes
 </AssemblerScript>
           <CheatEntries>
             <CheatEntry>
@@ -103,15 +103,24 @@ vtAFKbypass:
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>//instruction for function to subtract shells upon purchase for shop only
 define(shellshoppurchase, Insaniquarium.exe+12BDBB)
+define(shellshoppurchaseoriginalbytes, 8B 8E BC 00)
 //instruction that checks if you have enough shells to purchase
 define(shellcheckbypass, Insaniquarium.exe+12C037)
+define(shellcheckbypassoriginalbytes, 0F 8E AE 00)
 //instruction that checks if you have enough shells to purchase
 //bonus pets, extra pets
 define(petshellcheckbypass, Insaniquarium.exe+11E15A)
+define(petshellcheckbypassoriginalbytes, 7D 7E 83 B8)
 //instruction for function to subtract shells for pets/upgrades
 define(shellpetpurchase, Insaniquarium.exe+1174F8)
+define(shellpetpurchaseoriginalbytes, 8B 86 D0 00)
 
 [ENABLE]
+assert(shellshoppurchase,shellshoppurchaseoriginalbytes)
+assert(shellcheckbypass,shellcheckbypassoriginalbytes)
+assert(petshellcheckbypass,petshellcheckbypassoriginalbytes)
+assert(shellpetpurchase,shellpetpurchaseoriginalbytes)
+
 shellshoppurchase:
   jmp Insaniquarium.exe+12BDDB
 shellcheckbypass:
@@ -122,15 +131,14 @@ shellpetpurchase:
   jmp Insaniquarium.exe+117512
 
 [DISABLE]
-//original code
 shellshoppurchase:
-  mov ecx,[esi+000000BC]
+  db shellshoppurchaseoriginalbytes
 shellcheckbypass:
-  jng Insaniquarium.exe+12C0EB
+  db shellcheckbypassoriginalbytes
 petshellcheckbypass:
-  jnl Insaniquarium.exe+11E1DA
+  db petshellcheckbypassoriginalbytes
 shellpetpurchase:
-  mov eax,[esi+000000D0]
+  db shellpetpurchaseoriginalbytes
 
 </AssemblerScript>
           <CheatEntries>
@@ -178,13 +186,16 @@ shellpetpurchase:
           <Color>008000</Color>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>define(purchaseaddr, "Insaniquarium.exe"+140B6B)
+define(originalbytes, 0F 84 32 01)
 
 [ENABLE]
+assert(purchaseaddr, originalbytes)
 purchaseaddr:
-  db E9 33 01 00
+  jmp Insaniquarium.exe+140CA3
+
 [DISABLE]
 purchaseaddr:
-  db 0F 84 32 01
+  db originalbytes
 </AssemblerScript>
           <CheatEntries>
             <CheatEntry>
@@ -204,15 +215,17 @@ purchaseaddr:
           <Color>008000</Color>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>define(petquantitycheck, Insaniquarium.exe+132FF3)
+define(originalbytes, 7D 1C 6A 01)
 
 [ENABLE]
+assert(petquantitycheck, originalbytes)
 petquantitycheck:
   nop
   nop
 
 [DISABLE]
 petquantitycheck:
-  jnl Insaniquarium.exe+133011
+  db originalbytes
 
 </AssemblerScript>
           <CheatEntries>
@@ -233,14 +246,16 @@ petquantitycheck:
           <Color>008000</Color>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>define(aliendecrement,insaniquarium.exe+14825C)
+define(originalbytes, 74 43 83 BE)
 
 [ENABLE]
+assert(aliendecrement, originalbytes)
 aliendecrement:
   jmp Insaniquarium.exe+1482A1
 
 [DISABLE]
 aliendecrement:
-  je Insaniquarium.exe+1482A1
+  db originalbytes
 
 </AssemblerScript>
           <CheatEntries>
@@ -355,6 +370,7 @@ define(originalbytes, 0F 84 D8 00)
 assert(nogameover, originalbytes)
 nogameover:
   jmp insaniquarium.exe+148E5C
+
 [DISABLE]
 nogameover:
   db originalbytes
