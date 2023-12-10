@@ -20,10 +20,10 @@ Pets in the virtual tank that collect shells fall asleep after roughly 3 minutes
 - No game over (free guppy if all fish are dead, doesn't work on final boss)
 
 ## Compatibility
-This should work with most, if not all v1.1 variants. I've tested 3 so far and haven't had any issues. If you are trying to use this and you can't activate anything, then your version will not work with this as is. This will not work with the trials as is either.
+This should work with most, if not all v1.1 variants. I've tested 5 so far and haven't had any issues. If you are trying to use this and you can't activate anything, then your version may not work or you attached to the DRM launcher that might have the same name `Insaniquarium.exe`. If you're using a trial or have certain DRM's, the process name could be `popcapgame1.exe`. Use `popcapgame1.CT` and go to File -> open processes -> processes tab to find it.
 ```
-Game Process   : Insaniquarium.exe
+Game Process   : Insaniquarium.exe, popcapgame1.exe
 Game Version   : v1.1
-Executable Size: 2,176,320 bytes
+Executable Size: 2,176,320 bytes, 2,334,720 bytes
 CE Version     : 7.5
 ```
