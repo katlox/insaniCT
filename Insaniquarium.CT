@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>30</ID>
+      <Description>"QoL improvements"</Description>
+      <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+      <Color>FF8000</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1</ID>
+          <Description>"Multi-Client"</Description>
+          <Color>008000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>define(mutexCheck, "Insaniquarium.exe"+8889C)
+define(mutexCreation, "Insaniquarium.exe"+8882C)
+
+define(originalmutexbranch, 75 0C 8B 07)
+define(originalmutexcreation, 50 6A 01 53 FF 15 58 61 59 00 BE 10 00 00 00 39)
+
+[ENABLE]
+assert(mutexCheck, originalmutexbranch)
+assert(mutexCreation, originalmutexcreation)
+
+mutexCheck:
+  jmp "Insaniquarium.exe"+888AA
+
+mutexCreation:
+  jmp "Insaniquarium.exe"+88836
+
+[DISABLE]
+mutexCheck:
+  //jne "Insaniquarium.exe"+888AA
+  db originalmutexbranch
+
+mutexCreation:
+  db originalmutexcreation
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>0</ID>
+              <Description>"jump instruction"</Description>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Array of byte</VariableType>
+              <ByteLength>4</ByteLength>
+              <Address>Insaniquarium.exe+8889C</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>58</ID>
+              <Description>"mutex creation"</Description>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Array of byte</VariableType>
+              <ByteLength>4</ByteLength>
+              <Address>insaniquarium.exe+8882C</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>25</ID>
+          <Description>"Virtual Tank afk bypass"</Description>
+          <Color>008000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript Async="1">define(vtAFKbypass, "Insaniquarium.exe"+D6B97)
+
+[ENABLE]
+vtAFKbypass:
+  nop
+  nop
+ 
+[DISABLE]
+vtAFKbypass:
+//original instruction
+  jnl Insaniquarium.exe+D6BA4
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>24</ID>
+              <Description>"instruction"</Description>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Array of byte</VariableType>
+              <ByteLength>4</ByteLength>
+              <Address>"Insaniquarium.exe"+D6B97</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>29</ID>
+      <Description>"Cheats"</Description>
+      <Options moManualExpandCollapse="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+      <Color>FF8000</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>10</ID>
+          <Description>"All purchases free (shells)"</Description>
+          <Color>008000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>//instruction for function to subtract shells upon purchase for shop only
+define(shellshoppurchase, Insaniquarium.exe+12BDBB)
+//instruction that checks if you have enough shells to purchase
+define(shellcheckbypass, Insaniquarium.exe+12C037)
+//instruction that checks if you have enough shells to purchase
+//bonus pets, extra pets
+define(petshellcheckbypass, Insaniquarium.exe+11E15A)
+//instruction for function to subtract shells for pets/upgrades
+define(shellpetpurchase, Insaniquarium.exe+1174F8)
+
+[ENABLE]
+shellshoppurchase:
+  jmp Insaniquarium.exe+12BDDB
+shellcheckbypass:
+  jmp Insaniquarium.exe+12C0EB
+petshellcheckbypass:
+  jmp Insaniquarium.exe+11E1DA
+shellpetpurchase:
+  jmp Insaniquarium.exe+117512
+
+[DISABLE]
+//original code
+shellshoppurchase:
+  mov ecx,[esi+000000BC]
+shellcheckbypass:
+  jng Insaniquarium.exe+12C0EB
+petshellcheckbypass:
+  jnl Insaniquarium.exe+11E1DA
+shellpetpurchase:
+  mov eax,[esi+000000D0]
+
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>11</ID>
+              <Description>"shellshoppurchase"</Description>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Array of byte</VariableType>
+              <ByteLength>4</ByteLength>
+              <Address>"Insaniquarium.exe"+12BDBB</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>12</ID>
+              <Description>"shellcheckbypass"</Description>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Array of byte</VariableType>
+              <ByteLength>4</ByteLength>
+              <Address>"Insaniquarium.exe"+12C037</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>44</ID>
+              <Description>"petshellcheckbypass"</Description>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Array of byte</VariableType>
+              <ByteLength>4</ByteLength>
+              <Address>"Insaniquarium.exe"+11E15A</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>45</ID>
+              <Description>"shellpetpurchase"</Description>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Array of byte</VariableType>
+              <ByteLength>4</ByteLength>
+              <Address>"Insaniquarium.exe"+1174F8</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>31</ID>
+          <Description>"All purchases free (money)"</Description>
+          <Color>008000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>define(purchaseaddr, "Insaniquarium.exe"+140B6B)
+
+[ENABLE]
+purchaseaddr:
+  db E9 33 01 00
+[DISABLE]
+purchaseaddr:
+  db 0F 84 32 01
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>42</ID>
+              <Description>"purchase address"</Description>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Array of byte</VariableType>
+              <ByteLength>4</ByteLength>
+              <Address>"Insaniquarium.exe"+140B6B</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>41</ID>
+          <Description>"Unlimited Pets"</Description>
+          <Color>008000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>define(petquantitycheck, Insaniquarium.exe+132FF3)
+
+[ENABLE]
+petquantitycheck:
+  nop
+  nop
+
+[DISABLE]
+petquantitycheck:
+  jnl Insaniquarium.exe+133011
+
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>43</ID>
+              <Description>"petquantitycheck"</Description>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Array of byte</VariableType>
+              <ByteLength>4</ByteLength>
+              <Address>"Insaniquarium.exe"+132FF3</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>47</ID>
+          <Description>"No Aliens"</Description>
+          <Color>008000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>define(aliendecrement,insaniquarium.exe+14825C)
+
+[ENABLE]
+aliendecrement:
+  jmp Insaniquarium.exe+1482A1
+
+[DISABLE]
+aliendecrement:
+  je Insaniquarium.exe+1482A1
+
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>46</ID>
+              <Description>"aliendecrement"</Description>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Array of byte</VariableType>
+              <ByteLength>4</ByteLength>
+              <Address>insaniquarium.exe+14825C</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>48</ID>
+          <Description>"Unlimited Food"</Description>
+          <Color>008000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>define(maxfoodexceededcheck, insaniquarium.exe+14336C)
+define(original_bytes, 0F 8C A0 00)
+
+[ENABLE]
+assert(maxfoodexceededcheck, original_bytes)
+maxfoodexceededcheck:
+  jmp Insaniquarium.exe+143412
+
+[DISABLE]
+maxfoodexceededcheck:
+  db original_bytes
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>49</ID>
+              <Description>"foodexceededcheck"</Description>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Array of byte</VariableType>
+              <ByteLength>4</ByteLength>
+              <Address>insaniquarium.exe+14336C</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>52</ID>
+          <Description>"Pause Hunger"</Description>
+          <Color>008000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>define(hungerdecrement, insaniquarium.exe+D6EF9)
+define(originalbytes, 75 06 01 81)
+
+[ENABLE]
+assert(hungerdecrement, originalbytes)
+hungerdecrement:
+  jmp Insaniquarium.exe+D6F01
+
+[DISABLE]
+hungerdecrement:
+  db originalbytes
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>51</ID>
+              <Description>"hungerdecrement"</Description>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Array of byte</VariableType>
+              <ByteLength>4</ByteLength>
+              <Address>insaniquarium.exe+d6ef9</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>54</ID>
+          <Description>"Disable Death by Hunger"</Description>
+          <Color>008000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>define(deathcheck, insaniquarium.exe+F17B3)
+define(originalbytes, 7F 1F 80 BE)
+
+[ENABLE]
+assert(deathcheck, originalbytes)
+deathcheck:
+  jmp Insaniquarium.exe+F17D4
+
+[DISABLE]
+deathcheck:
+  db originalbytes
+
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>55</ID>
+              <Description>"deathcheck"</Description>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Array of byte</VariableType>
+              <ByteLength>4</ByteLength>
+              <Address>insaniquarium.exe+F17B3</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>57</ID>
+          <Description>"No Game Over (doesn't work on final boss)"</Description>
+          <Color>008000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>define(nogameover, insaniquarium.exe+148E56)
+define(originalbytes, 0F 84 D8 00)
+
+[ENABLE]
+assert(nogameover, originalbytes)
+nogameover:
+  jmp insaniquarium.exe+148E5C
+[DISABLE]
+nogameover:
+  db originalbytes
+
+
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>56</ID>
+              <Description>"nogameoverbranch"</Description>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Array of byte</VariableType>
+              <ByteLength>4</ByteLength>
+              <Address>insaniquarium.exe+148E56</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>4</ID>
+      <Description>"Adjustable Values"</Description>
+      <Options moManualExpandCollapse="1"/>
+      <Color>FF8000</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>2</ID>
+          <Description>"Shells"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"Insaniquarium.exe"+001EB5F0</Address>
+          <Offsets>
+            <Offset>48</Offset>
+            <Offset>8B8</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>6</ID>
+          <Description>"Money"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"Insaniquarium.exe"+001EB5F0</Address>
+          <Offsets>
+            <Offset>3F0</Offset>
+            <Offset>730</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>9</ID>
+          <Description>"fish food limit"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>Insaniquarium.exe+1DF58C</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>23</ID>
+          <Description>"alien countdown"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"Insaniquarium.exe"+001E8F28</Address>
+          <Offsets>
+            <Offset>2C0</Offset>
+            <Offset>8</Offset>
+            <Offset>0</Offset>
+            <Offset>8</Offset>
+            <Offset>320</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>27</ID>
+          <Description>"adventure tank"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"Insaniquarium.exe"+001E8F28</Address>
+          <Offsets>
+            <Offset>1C</Offset>
+            <Offset>8B8</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>28</ID>
+          <Description>"adventure tank level"</Description>
+          <ShowAsSigned>0</ShowAsSigned>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"Insaniquarium.exe"+001E8F28</Address>
+          <Offsets>
+            <Offset>20</Offset>
+            <Offset>8B8</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>37</ID>
+          <Description>"virtual tank max pets"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"Insaniquarium.exe"+001EB5F0</Address>
+          <Offsets>
+            <Offset>B4</Offset>
+            <Offset>8B8</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>38</ID>
+      <Description>"Info only"</Description>
+      <Options moManualExpandCollapse="1"/>
+      <Color>FF8000</Color>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>8</ID>
+          <Description>"time elapsed"</Description>
+          <VariableType>4 Bytes</VariableType>
+          <Address>"Insaniquarium.exe"+001EB5F0</Address>
+          <Offsets>
+            <Offset>3B0</Offset>
+            <Offset>730</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
