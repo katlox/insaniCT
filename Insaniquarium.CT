@@ -342,28 +342,48 @@ hungerdecrement:
           <Options moAlwaysHideChildren="1"/>
           <Color>008000</Color>
           <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>define(deathcheck, $process+F17B3)
-define(originalbytes, 7F 1F 80 BE)
+          <AssemblerScript>define(tutorialdeathcheck, $process+F17B3)
+define(tutorialoriginalbytes, 7F 1F 80 BE)
+
+define(deathcheck, $process+F1619)
+define(deathcheckoriginalbytes, 74 1D 80 BE)
 
 [ENABLE]
+assert(tutorialdeathcheck, tutorialoriginalbytes)
 assert(deathcheck, originalbytes)
-deathcheck:
+
+tutorialdeathcheck:
   jmp $process+F17D4
 
-[DISABLE]
 deathcheck:
-  db originalbytes
+  jmp $process+F1638
+
+[DISABLE]
+tutorialdeathcheck:
+  db tutorialoriginalbytes
+
+deathcheck:
+  db deathcheckoriginalbytes
 
 </AssemblerScript>
           <CheatEntries>
             <CheatEntry>
               <ID>55</ID>
-              <Description>"deathcheck"</Description>
+              <Description>"tutorialdeathcheck"</Description>
               <ShowAsHex>1</ShowAsHex>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
               <Address>$process+F17B3</Address>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>59</ID>
+              <Description>"deathcheck"</Description>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Array of byte</VariableType>
+              <ByteLength>4</ByteLength>
+              <Address>$process+F1619</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
