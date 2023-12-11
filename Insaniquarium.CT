@@ -14,10 +14,10 @@
           <Options moAlwaysHideChildren="1"/>
           <Color>008000</Color>
           <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>define(mutexCheck, Insaniquarium.exe+8889C)
+          <AssemblerScript>define(mutexCheck, $process+8889C)
 define(originalMutexBytes, 75 0C 8B 07)
 
-define(mutexCreation, Insaniquarium.exe+8882C)
+define(mutexCreation, $process+8882C)
 define(originalMutexCreationBytes, 50 6A 01 53)
 
 [ENABLE]
@@ -25,10 +25,10 @@ assert(mutexCheck, originalMutexBytes)
 assert(mutexCreation, originalMutexCreationBytes)
 
 mutexCheck:
-  jmp Insaniquarium.exe+888AA
+  jmp $process+888AA
 
 mutexCreation:
-  jmp Insaniquarium.exe+88836
+  jmp $process+88836
 
 [DISABLE]
 mutexCheck:
@@ -45,7 +45,7 @@ mutexCreation:
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
-              <Address>Insaniquarium.exe+8889C</Address>
+              <Address>$process+8889C</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>58</ID>
@@ -54,7 +54,7 @@ mutexCreation:
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
-              <Address>Insaniquarium.exe+8882C</Address>
+              <Address>$process+8882C</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
@@ -64,7 +64,7 @@ mutexCreation:
           <Options moAlwaysHideChildren="1"/>
           <Color>008000</Color>
           <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript Async="1">define(vtAFKbypass, Insaniquarium.exe+D6B97)
+          <AssemblerScript Async="1">define(vtAFKbypass, $process+D6B97)
 define(originalbytes, 7D 0B 8B 55)
 
 [ENABLE]
@@ -85,7 +85,7 @@ vtAFKbypass:
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
-              <Address>Insaniquarium.exe+D6B97</Address>
+              <Address>$process+D6B97</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
@@ -105,17 +105,17 @@ vtAFKbypass:
           <Color>008000</Color>
           <VariableType>Auto Assembler Script</VariableType>
           <AssemblerScript>//instruction for function to subtract shells upon purchase for shop only
-define(shellshoppurchase, Insaniquarium.exe+12BDBB)
+define(shellshoppurchase, $process+12BDBB)
 define(shellshoppurchaseoriginalbytes, 8B 8E BC 00)
 //instruction that checks if you have enough shells to purchase
-define(shellcheckbypass, Insaniquarium.exe+12C037)
+define(shellcheckbypass, $process+12C037)
 define(shellcheckbypassoriginalbytes, 0F 8E AE 00)
 //instruction that checks if you have enough shells to purchase
 //bonus pets, extra pets
-define(petshellcheckbypass, Insaniquarium.exe+11E15A)
+define(petshellcheckbypass, $process+11E15A)
 define(petshellcheckbypassoriginalbytes, 7D 7E 83 B8)
 //instruction for function to subtract shells for pets/upgrades
-define(shellpetpurchase, Insaniquarium.exe+1174F8)
+define(shellpetpurchase, $process+1174F8)
 define(shellpetpurchaseoriginalbytes, 8B 86 D0 00)
 
 [ENABLE]
@@ -125,13 +125,13 @@ assert(petshellcheckbypass,petshellcheckbypassoriginalbytes)
 assert(shellpetpurchase,shellpetpurchaseoriginalbytes)
 
 shellshoppurchase:
-  jmp Insaniquarium.exe+12BDDB
+  jmp $process+12BDDB
 shellcheckbypass:
-  jmp Insaniquarium.exe+12C0EB
+  jmp $process+12C0EB
 petshellcheckbypass:
-  jmp Insaniquarium.exe+11E1DA
+  jmp $process+11E1DA
 shellpetpurchase:
-  jmp Insaniquarium.exe+117512
+  jmp $process+117512
 
 [DISABLE]
 shellshoppurchase:
@@ -152,7 +152,7 @@ shellpetpurchase:
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
-              <Address>Insaniquarium.exe+12BDBB</Address>
+              <Address>$process+12BDBB</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>12</ID>
@@ -161,7 +161,7 @@ shellpetpurchase:
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
-              <Address>Insaniquarium.exe+12C037</Address>
+              <Address>$process+12C037</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>44</ID>
@@ -170,7 +170,7 @@ shellpetpurchase:
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
-              <Address>Insaniquarium.exe+11E15A</Address>
+              <Address>$process+11E15A</Address>
             </CheatEntry>
             <CheatEntry>
               <ID>45</ID>
@@ -179,7 +179,7 @@ shellpetpurchase:
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
-              <Address>Insaniquarium.exe+1174F8</Address>
+              <Address>$process+1174F8</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
@@ -189,13 +189,13 @@ shellpetpurchase:
           <Options moAlwaysHideChildren="1"/>
           <Color>008000</Color>
           <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>define(purchaseaddr, Insaniquarium.exe+140B6B)
+          <AssemblerScript>define(purchaseaddr, $process+140B6B)
 define(originalbytes, 0F 84 32 01)
 
 [ENABLE]
 assert(purchaseaddr, originalbytes)
 purchaseaddr:
-  jmp Insaniquarium.exe+140CA3
+  jmp $process+140CA3
 
 [DISABLE]
 purchaseaddr:
@@ -209,7 +209,7 @@ purchaseaddr:
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
-              <Address>Insaniquarium.exe+140B6B</Address>
+              <Address>$process+140B6B</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
@@ -219,7 +219,7 @@ purchaseaddr:
           <Options moAlwaysHideChildren="1"/>
           <Color>008000</Color>
           <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>define(petquantitycheck, Insaniquarium.exe+132FF3)
+          <AssemblerScript>define(petquantitycheck, $process+132FF3)
 define(originalbytes, 7D 1C 6A 01)
 
 [ENABLE]
@@ -241,7 +241,7 @@ petquantitycheck:
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
-              <Address>Insaniquarium.exe+132FF3</Address>
+              <Address>$process+132FF3</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
@@ -251,13 +251,13 @@ petquantitycheck:
           <Options moAlwaysHideChildren="1"/>
           <Color>008000</Color>
           <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>define(aliendecrement,Insaniquarium.exe+14825C)
+          <AssemblerScript>define(aliendecrement,$process+14825C)
 define(originalbytes, 74 43 83 BE)
 
 [ENABLE]
 assert(aliendecrement, originalbytes)
 aliendecrement:
-  jmp Insaniquarium.exe+1482A1
+  jmp $process+1482A1
 
 [DISABLE]
 aliendecrement:
@@ -272,7 +272,7 @@ aliendecrement:
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
-              <Address>Insaniquarium.exe+14825C</Address>
+              <Address>$process+14825C</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
@@ -282,13 +282,13 @@ aliendecrement:
           <Options moAlwaysHideChildren="1"/>
           <Color>008000</Color>
           <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>define(maxfoodexceededcheck, Insaniquarium.exe+14336C)
+          <AssemblerScript>define(maxfoodexceededcheck, $process+14336C)
 define(originalbytes, 0F 8C A0 00)
 
 [ENABLE]
 assert(maxfoodexceededcheck, originalbytes)
 maxfoodexceededcheck:
-  jmp Insaniquarium.exe+143412
+  jmp $process+143412
 
 [DISABLE]
 maxfoodexceededcheck:
@@ -302,7 +302,7 @@ maxfoodexceededcheck:
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
-              <Address>Insaniquarium.exe+14336C</Address>
+              <Address>$process+14336C</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
@@ -312,13 +312,13 @@ maxfoodexceededcheck:
           <Options moAlwaysHideChildren="1"/>
           <Color>008000</Color>
           <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>define(hungerdecrement, Insaniquarium.exe+D6EF9)
+          <AssemblerScript>define(hungerdecrement, $process+D6EF9)
 define(originalbytes, 75 06 01 81)
 
 [ENABLE]
 assert(hungerdecrement, originalbytes)
 hungerdecrement:
-  jmp Insaniquarium.exe+D6F01
+  jmp $process+D6F01
 
 [DISABLE]
 hungerdecrement:
@@ -332,7 +332,7 @@ hungerdecrement:
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
-              <Address>Insaniquarium.exe+d6ef9</Address>
+              <Address>$process+d6ef9</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
@@ -342,13 +342,13 @@ hungerdecrement:
           <Options moAlwaysHideChildren="1"/>
           <Color>008000</Color>
           <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>define(deathcheck, Insaniquarium.exe+F17B3)
+          <AssemblerScript>define(deathcheck, $process+F17B3)
 define(originalbytes, 7F 1F 80 BE)
 
 [ENABLE]
 assert(deathcheck, originalbytes)
 deathcheck:
-  jmp Insaniquarium.exe+F17D4
+  jmp $process+F17D4
 
 [DISABLE]
 deathcheck:
@@ -363,7 +363,7 @@ deathcheck:
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
-              <Address>Insaniquarium.exe+F17B3</Address>
+              <Address>$process+F17B3</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
@@ -373,13 +373,13 @@ deathcheck:
           <Options moAlwaysHideChildren="1"/>
           <Color>008000</Color>
           <VariableType>Auto Assembler Script</VariableType>
-          <AssemblerScript>define(nogameover, Insaniquarium.exe+148E56)
+          <AssemblerScript>define(nogameover, $process+148E56)
 define(originalbytes, 0F 84 D8 00)
 
 [ENABLE]
 assert(nogameover, originalbytes)
 nogameover:
-  jmp Insaniquarium.exe+148E5C
+  jmp $process+148E5C
 
 [DISABLE]
 nogameover:
@@ -395,7 +395,7 @@ nogameover:
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
-              <Address>Insaniquarium.exe+148E56</Address>
+              <Address>$process+148E56</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
@@ -412,7 +412,7 @@ nogameover:
           <ID>2</ID>
           <Description>"Shells"</Description>
           <VariableType>4 Bytes</VariableType>
-          <Address>Insaniquarium.exe+001EB5F0</Address>
+          <Address>$process+001EB5F0</Address>
           <Offsets>
             <Offset>48</Offset>
             <Offset>8B8</Offset>
@@ -422,7 +422,7 @@ nogameover:
           <ID>6</ID>
           <Description>"Money"</Description>
           <VariableType>4 Bytes</VariableType>
-          <Address>Insaniquarium.exe+001EB5F0</Address>
+          <Address>$process+001EB5F0</Address>
           <Offsets>
             <Offset>3F0</Offset>
             <Offset>730</Offset>
@@ -432,13 +432,13 @@ nogameover:
           <ID>9</ID>
           <Description>"fish food limit"</Description>
           <VariableType>4 Bytes</VariableType>
-          <Address>Insaniquarium.exe+1DF58C</Address>
+          <Address>$process+1DF58C</Address>
         </CheatEntry>
         <CheatEntry>
           <ID>23</ID>
           <Description>"alien countdown"</Description>
           <VariableType>4 Bytes</VariableType>
-          <Address>Insaniquarium.exe+001E8F28</Address>
+          <Address>$process+001E8F28</Address>
           <Offsets>
             <Offset>2C0</Offset>
             <Offset>8</Offset>
@@ -451,7 +451,7 @@ nogameover:
           <ID>27</ID>
           <Description>"adventure tank"</Description>
           <VariableType>4 Bytes</VariableType>
-          <Address>Insaniquarium.exe+001E8F28</Address>
+          <Address>$process+001E8F28</Address>
           <Offsets>
             <Offset>1C</Offset>
             <Offset>8B8</Offset>
@@ -462,7 +462,7 @@ nogameover:
           <Description>"adventure tank level"</Description>
           <ShowAsSigned>0</ShowAsSigned>
           <VariableType>4 Bytes</VariableType>
-          <Address>Insaniquarium.exe+001E8F28</Address>
+          <Address>$process+001E8F28</Address>
           <Offsets>
             <Offset>20</Offset>
             <Offset>8B8</Offset>
@@ -472,7 +472,7 @@ nogameover:
           <ID>37</ID>
           <Description>"virtual tank max pets"</Description>
           <VariableType>4 Bytes</VariableType>
-          <Address>Insaniquarium.exe+001EB5F0</Address>
+          <Address>$process+001EB5F0</Address>
           <Offsets>
             <Offset>B4</Offset>
             <Offset>8B8</Offset>
@@ -491,7 +491,7 @@ nogameover:
           <ID>8</ID>
           <Description>"time elapsed"</Description>
           <VariableType>4 Bytes</VariableType>
-          <Address>Insaniquarium.exe+001EB5F0</Address>
+          <Address>$process+001EB5F0</Address>
           <Offsets>
             <Offset>3B0</Offset>
             <Offset>730</Offset>
