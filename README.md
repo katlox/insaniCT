@@ -9,6 +9,7 @@ This table includes a mix of quality of life improvements, cheats, as well as ea
 You'll need to use cheat engine to launch the game with this cheat table, enable this option, and then let the game continue to start. Won't work if you launch through DRM launcher.
 #### Virtual Tank afk bypass
 Pets in the virtual tank that collect shells fall asleep after roughly 3 minutes. This option disables that and makes for a decent alternative to the screensaver.
+#### No auto-pause when click out of window
 ### Cheats
 - Anything that costs shells is free
 - Anything that costs money is free

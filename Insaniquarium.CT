@@ -89,6 +89,37 @@ vtAFKbypass:
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
+        <CheatEntry>
+          <ID>61</ID>
+          <Description>"No pause when click out of window"</Description>
+          <Options moAlwaysHideChildren="1"/>
+          <Color>008000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>define(nopauseonclickout, $process+8353B)
+define(originalbytes, 8B 06 8B 90)
+
+[ENABLE]
+assert(nopauseonclickout, originalbytes)
+nopauseonclickout:
+  jmp $process+83547
+
+[DISABLE]
+nopauseonclickout:
+  db originalbytes
+
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>60</ID>
+              <Description>"nopauseonclickout"</Description>
+              <ShowAsHex>1</ShowAsHex>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>Array of byte</VariableType>
+              <ByteLength>4</ByteLength>
+              <Address>$process+8353B</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
       </CheatEntries>
     </CheatEntry>
     <CheatEntry>
