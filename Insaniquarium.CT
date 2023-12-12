@@ -376,8 +376,8 @@ hungerdecrement:
           <AssemblerScript>define(tutorialdeathcheck, $process+F17B3)
 define(tutorialoriginalbytes, 7F 1F 80 BE)
 
-define(deathcheck, $process+F1619)
-define(deathcheckoriginalbytes, 74 1D 80 BE)
+define(deathcheck, $process+D69D0)
+define(deathcheckoriginalbytes, 83 B9 AC 00)
 
 [ENABLE]
 assert(tutorialdeathcheck, tutorialoriginalbytes)
@@ -387,7 +387,7 @@ tutorialdeathcheck:
   jmp $process+F17D4
 
 deathcheck:
-  jmp $process+F1638
+  jmp $process+D69D9
 
 [DISABLE]
 tutorialdeathcheck:
@@ -414,7 +414,7 @@ deathcheck:
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>Array of byte</VariableType>
               <ByteLength>4</ByteLength>
-              <Address>$process+F1619</Address>
+              <Address>$process+D69D0</Address>
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
