@@ -120,6 +120,37 @@ nopauseonclickout:
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
+        <CheatEntry>
+          <ID>62</ID>
+          <Description>"shell currency cap increase to 1b"</Description>
+          <Color>008000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>define(shellconst, $process+10120D)
+define(shellconst2, $process+101216)
+
+//9,999,999
+define(originalbytes, 7F 96 98 00)
+//1,000,000,000
+define(newbytes, 00 CA 9A 3B)
+
+[ENABLE]
+assert(shellconst, originalbytes)
+assert(shellconst2, originalbytes)
+
+shellconst:
+  db newbytes
+
+shellconst2:
+  db newbytes
+
+[DISABLE]
+shellconst:
+  db originalbytes
+
+shellconst2:
+  db originalbytes
+</AssemblerScript>
+        </CheatEntry>
       </CheatEntries>
     </CheatEntry>
     <CheatEntry>

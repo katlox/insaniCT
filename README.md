@@ -10,6 +10,8 @@ You'll need to use cheat engine to launch the game with this cheat table, enable
 #### Virtual Tank afk bypass
 Pets in the virtual tank that collect shells fall asleep after roughly 3 minutes. This option disables that and makes for a decent alternative to the screensaver.
 #### No auto-pause when click out of window
+#### Increase Shell Cap from 9,999,999 to 1 billion
+Shells will revert back to 9,999,999 if the hack is disabled and you gain or lose shells while over 10m.
 ### Cheats
 - Anything that costs shells is free
 - Anything that costs money is free
