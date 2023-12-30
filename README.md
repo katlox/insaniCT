@@ -21,7 +21,8 @@ Shells will revert back to 9,999,999 if the hack is disabled and you gain or los
 - Pause fish hunger
 - Disable death from starvation
 - No game over (free guppy if all fish are dead, doesn't work on final boss)
-
+#### [Experimental] Purchase multiple santa fish
+Note when using this, it will allow you to buy multiple santa fish, and apply the santa named fish to other fish types as well. Results may be unpredictable if not buying a guppy with this.
 ## Compatibility
 This should work with most, if not all v1.1 variants. I've tested 5 so far and haven't had any issues. If you are trying to use this and you can't activate anything, then your version may not work or you attached to the DRM launcher that might have the same name `Insaniquarium.exe`. If you're using a trial or have certain DRM's, the process name could be `popcapgame1.exe`. Go to File -> open processes -> processes tab to find it.
 ```

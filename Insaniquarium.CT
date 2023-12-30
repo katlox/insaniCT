@@ -481,6 +481,36 @@ nogameover:
             </CheatEntry>
           </CheatEntries>
         </CheatEntry>
+        <CheatEntry>
+          <ID>63</ID>
+          <Description>"[Experimenal] virtual tank purchase multiple santa fish"</Description>
+          <Color>008080</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>define(santaownedcheck, $process+14CCF5)
+define(santaownedcheck_originalbytes, 85 FF 8B 53)
+
+define(santanamecheck, $process+14CC95)
+define(santanamecheck_originalbytes, 68 2C 8C 5A)
+
+[ENABLE]
+assert(santaownedcheck, santaownedcheck_originalbytes)
+assert(santanamecheck, santanamecheck_originalbytes)
+
+santaownedcheck:
+  jmp $process+14CD6D
+
+santanamecheck:
+  jmp $process+14CCD9
+
+[DISABLE]
+santaownedcheck:
+  db santaownedcheck_originalbytes
+
+santanamecheck:
+  db santanamecheck_originalbytes
+
+</AssemblerScript>
+        </CheatEntry>
       </CheatEntries>
     </CheatEntry>
     <CheatEntry>
